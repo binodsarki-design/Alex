@@ -49,7 +49,7 @@ function renderNotices(notices = []) {
 
 function animateSectionsOnScroll() {
   if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  const items = document.querySelectorAll('.intro-grid, .learning-card, .notices-heading, .notice-item, .visit-inner, .contact-grid');
+  const items = document.querySelectorAll('.intro-grid, .learning-card, .notices-heading, .notice-item, .visit-inner, .contact-grid, .photo-card');
   const observer = new IntersectionObserver(entries => {
     for (const entry of entries) {
       if (!entry.isIntersecting) continue;
