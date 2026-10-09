@@ -82,6 +82,10 @@ async function loadHomepage() {
   setText('#aboutText', site.aboutText);
   setText('#contactAddress', site.address, 'School address');
   setText('#contactPhone', site.phone, 'School phone');
+  const phoneLink = document.querySelector('#contactPhone');
+if (phoneLink && site.phone) {
+  phoneLink.href = `tel:${site.phone.replace(/[^\d+]/g, '')}`;
+}
   setText('#contactEmail', site.email, 'School email');
   setText('#contactHours', site.officeHours, 'Office hours');
   const emailLink = $('#footerEmail');
