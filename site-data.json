@@ -1,0 +1,21 @@
+{
+  "schoolName": "Brilliant Star English School",
+  "tagline": "A place to learn, grow, and thrive.",
+  "heroTitle": "Every student deserves a bright future.",
+  "heroText": "Welcome to our school. We work together with families to help every learner discover their strengths and reach their potential.",
+  "aboutText": "Our school is a welcoming place where students build knowledge, confidence, and curiosity. We value strong foundations, caring relationships, and learning that prepares children for the future.",
+  "address": "Kanchanpur, Nepal",
+  "phone": "+9779812545652",
+  "email": "ABCDE@gmail.com",
+  "officeHours": "Monday-Saturday(8:00AM-4:00PM)",
+  "schoolImage": "",
+  "notices": [
+    {
+      "id": "1791523958922",
+      "title": "Parent Meeting on Saturday ",
+      "message": "All the parents must come and check their student result and discuss with respected teachers",
+      "date": "2026-11-20",
+      "category": "General"
+    }
+  ]
+}
