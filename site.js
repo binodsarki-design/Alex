@@ -47,6 +47,23 @@ function renderNotices(notices = []) {
   }
 }
 
+function animateSectionsOnScroll() {
+  if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const items = document.querySelectorAll('.intro-grid, .learning-card, .notices-heading, .notice-item, .visit-inner, .contact-grid');
+  const observer = new IntersectionObserver(entries => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting) continue;
+      entry.target.classList.add('is-visible');
+      observer.unobserve(entry.target);
+    }
+  }, { threshold: 0.12 });
+  items.forEach((item, index) => {
+    item.classList.add('reveal-on-scroll');
+    item.style.setProperty('--reveal-delay', `${(index % 3) * 90}ms`);
+    observer.observe(item);
+  });
+}
+
 async function loadHomepage() {
   const response = await fetch('./site-data.json');
   if (!response.ok) throw new Error('Could not load the school website content.');
@@ -77,6 +94,7 @@ async function loadHomepage() {
     $('#schoolImage').alt = `${site.schoolName || 'School'} campus`;
   }
   renderNotices(site.notices || []);
+  animateSectionsOnScroll();
 }
 
 $('#contactForm').addEventListener('submit', async event => {

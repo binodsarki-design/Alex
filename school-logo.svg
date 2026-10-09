@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">Brilliant Star English School emblem</title>
+  <desc id="desc">A gold star shining over an open book inside a blue and teal school crest.</desc>
+  <defs>
+    <linearGradient id="shield" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1169b5"/>
+      <stop offset="1" stop-color="#0d8f86"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffdf70"/>
+      <stop offset="1" stop-color="#f2a928"/>
+    </linearGradient>
+  </defs>
+  <circle cx="64" cy="64" r="61" fill="#fffaf0" stroke="#f1b735" stroke-width="4"/>
+  <path d="M64 14 105 29v32c0 25-17 43-41 54C40 104 23 86 23 61V29z" fill="url(#shield)" stroke="#17486d" stroke-width="3"/>
+  <path d="m64 25 5.8 11.8 13 .0-9.4 8.3 3.5 12.6L64 50l-12.9 7.7 3.5-12.6-9.4-8.3h13z" fill="url(#gold)" stroke="#fff3c2" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M37 68c10-4 19-3 27 3v25c-8-6-17-7-27-3zm54 0c-10-4-19-3-27 3v25c8-6 17-7 27-3z" fill="#fffaf0" stroke="#f6c751" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M64 72v24M43 75c6-1 11 0 16 3m26-3c-6-1-11 0-16 3" fill="none" stroke="#0d6982" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="33" cy="49" r="2.2" fill="#ffdf70"/><circle cx="95" cy="49" r="2.2" fill="#ffdf70"/>
+</svg>
