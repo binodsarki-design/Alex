@@ -91,3 +91,38 @@
 .detail-item a:hover {
   text-decoration: underline;
 }
+
+.classes-page {
+  min-height: 75vh;
+  padding: 70px 0;
+  background: linear-gradient(135deg, #f0f8ff, #fff7e8);
+}
+
+.classes-page h1 {
+  margin: 12px 0;
+  color: #075b8f;
+  font-size: clamp(38px, 6vw, 64px);
+}
+
+.classes-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 35px;
+}
+
+.class-card {
+  padding: 26px;
+  border-radius: 16px;
+  background: white;
+  border-top: 5px solid #f1b63a;
+  box-shadow: 0 10px 28px #16426718;
+}
+
+.class-card span { color: #087f84; font-weight: 700; }
+.class-card h2 { color: #075b8f; }
+.class-card p { color: #536879; }
+
+@media (max-width: 650px) {
+  .classes-grid { grid-template-columns: 1fr; }
+}
