@@ -7,7 +7,7 @@ This folder is a static, homepage-only export. GitHub Pages can serve these file
 From the project folder in PowerShell, run:
 
 ```powershell
-[.uild-github-pages.ps1](https://binodsarki-design.github.io/Alex/)
+https://binodsarki-design.github.io/Alex/
 ```
 
 The script copies the latest homepage design and writes `site-data.json` using the school details and notices saved by the local Site settings page. It excludes the local contact-message inbox. Review `github-pages\site-data.json` and the image before publishing because GitHub Pages content is public.
