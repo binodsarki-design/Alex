@@ -1,4 +1,5 @@
 const $ = selector => document.querySelector(selector);
+let destinationEmail = '';
 
 function setText(selector, text, fallback = '') {
   const element = $(selector);
@@ -51,6 +52,7 @@ async function loadHomepage() {
   const response = await fetch('./site-data.json');
   if (!response.ok) throw new Error('Could not load the school website content.');
   const site = await response.json();
+  destinationEmail = String(site.email || '').trim();
   document.title = site.schoolName || 'School website';
   setText('#brandName', site.schoolName, 'Your School Name');
   setText('#captionName', site.schoolName, 'Your School Name');
@@ -78,9 +80,30 @@ async function loadHomepage() {
   }
   renderNotices(site.notices || []);
   const form = $('#contactForm');
-  form.querySelectorAll('input,textarea,button').forEach(control => { control.disabled = true; });
-  $('#formMessage').textContent = 'For this preview, please contact the school using the details above.';
 }
+
+$('#contactForm').addEventListener('submit', event => {
+  event.preventDefault();
+  const status = $('#formMessage');
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(destinationEmail)) {
+    status.textContent = 'The school email is not set correctly yet. Please use the email shown above.';
+    return;
+  }
+  const details = Object.fromEntries(new FormData(event.currentTarget).entries());
+  const subject = details.subject || `Website enquiry from ${details.name}`;
+  const body = [
+    `Name: ${details.name}`,
+    `Email: ${details.email}`,
+    `Phone: ${details.phone || 'Not provided'}`,
+    `Subject: ${details.subject || 'Not provided'}`,
+    '',
+    'Message:',
+    String(details.message || '').slice(0, 1200),
+  ].join('\n');
+  const mailto = `mailto:${destinationEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  status.textContent = 'Your email app should open with this message. Review it and press Send there. If it does not open, email the school using the address above.';
+  window.location.href = mailto;
+});
 
 $('#menuToggle').addEventListener('click', () => {
   const menu = $('#mainNav');
