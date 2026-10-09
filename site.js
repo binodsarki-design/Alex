@@ -90,7 +90,7 @@ if (mapLink) {
     event.preventDefault();
 
     const openDirections = origin => {
-      const maps = new URL('https://maps.app.goo.gl/TF3WbScTNXsdeQ1B6/maps/dir/');
+      const maps = new URL('https://www.google.com/maps/place/Brilliant+Star+English+School/@28.6863842,80.4279889,822m/data=!3m2!1e3!4b1!4m6!3m5!1s0x39a1c153dac50311:0xee97383bc309fed7!8m2!3d28.6863842!4d80.4279889!16s%2Fg%2F11s67fpkwh!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MTAwNi4wIKXMDSoASAFQAw%3D%3D/maps/dir/');
       maps.searchParams.set('api', '1');
       maps.searchParams.set('destination', schoolDestination);
       if (origin) maps.searchParams.set('origin', origin);
