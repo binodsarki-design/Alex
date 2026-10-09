@@ -77,10 +77,32 @@ async function loadHomepage() {
     $('#schoolImage').alt = `${site.schoolName || 'School'} campus`;
   }
   renderNotices(site.notices || []);
-  const form = $('#contactForm');
-  form.querySelectorAll('input,textarea,button').forEach(control => { control.disabled = true; });
-  $('#formMessage').textContent = 'Contact form is not connected to the school server yet. Please use the school contact details above.';
 }
+
+$('#contactForm').addEventListener('submit', async event => {
+  event.preventDefault();
+  const form = event.currentTarget;
+  const button = form.querySelector('button[type="submit"]');
+  const status = $('#formMessage');
+  button.disabled = true;
+  status.textContent = 'Sending…';
+  try {
+    const payload = Object.fromEntries(new FormData(form).entries());
+    const response = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    const result = await response.json();
+    if (!response.ok) throw new Error(result.error || 'Could not send your message. Please try again.');
+    status.textContent = 'Thank you. The school has received your message.';
+    form.reset();
+  } catch {
+    status.textContent = 'Could not send your message right now. Please try again later or contact the school using the details above.';
+  } finally {
+    button.disabled = false;
+  }
+});
 
 $('#menuToggle').addEventListener('click', () => {
   const menu = $('#mainNav');
