@@ -55,6 +55,9 @@ async function loadHomepage() {
   setText('#brandName', site.schoolName, 'Your School Name');
   setText('#captionName', site.schoolName, 'Your School Name');
   setText('#footerName', site.schoolName, 'Your School Name');
+  setText('#heroSchoolName', (site.schoolName || 'YOUR SCHOOL').toLocaleUpperCase());
+  setText('#copyrightName', site.schoolName, 'Your School Name');
+  setText('#currentYear', new Date().getFullYear());
   setText('#brandTagline', site.tagline, 'A place to learn, grow, and thrive.');
   setText('#footerTagline', site.tagline, 'A place to learn, grow, and thrive.');
   setText('#heroTitle', site.heroTitle, 'Every student deserves a bright future.');
@@ -64,6 +67,11 @@ async function loadHomepage() {
   setText('#contactPhone', site.phone, 'School phone');
   setText('#contactEmail', site.email, 'School email');
   setText('#contactHours', site.officeHours, 'Office hours');
+  const emailLink = $('#footerEmail');
+  if (emailLink && site.email) {
+    emailLink.href = `mailto:${site.email}`;
+    emailLink.textContent = `${site.email} ↗`;
+  }
   if (site.schoolImage) {
     $('#schoolImage').src = site.schoolImage;
     $('#schoolImage').alt = `${site.schoolName || 'School'} campus`;
