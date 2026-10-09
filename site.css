@@ -81,3 +81,13 @@
 .photo-card.reveal-on-scroll{transition:opacity .7s ease var(--reveal-delay,0ms),transform .7s cubic-bezier(.2,.7,.2,1) var(--reveal-delay,0ms)}
 @media(max-width:900px){.photo-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:190px}.photo-card:first-child{grid-row:span 1;grid-column:span 2}.photo-card:nth-child(4){grid-column:span 1}}
 @media(max-width:700px){.photo-grid{grid-auto-rows:165px;gap:9px}.photo-card:first-child{grid-column:span 2}.photo-card figcaption{left:11px;right:9px;bottom:11px}.photo-card figcaption span{font-size:6px}.photo-card figcaption strong{font-size:13px}}
+.detail-item a {
+  display: block;
+  color: #46584d;
+  font-size: 9px;
+  text-decoration: none;
+}
+
+.detail-item a:hover {
+  text-decoration: underline;
+}
