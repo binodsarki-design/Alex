@@ -4,7 +4,7 @@ This local website has a school homepage, a site settings page, and a SQL Server
 
 ## Visit the published school website
 
-[Open Brilliant Star English School](https://binodsarki-design.github.io/Alex/)
+<a href="https://binodsarki-design.github.io/Alex/" target="_blank" rel="noopener noreferrer">Open Brilliant Star English School ↗</a>
 
 ## Start the website
 
